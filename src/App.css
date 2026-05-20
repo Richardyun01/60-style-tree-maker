@@ -1,0 +1,75 @@
+﻿body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #050505;
+}
+
+.aircraft-node {
+  padding: 10px;
+  background-color: #050505;
+  color: #33ff33;
+  border: 2px solid #33ff33;
+  text-align: center;
+  min-width: 120px;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(51, 255, 51, 0.4), inset 0 0 10px rgba(51, 255, 51, 0.2);
+  transform: perspective(500px) translateZ(0); /* slight crt feel */
+}
+
+.aircraft-node.active {
+  border-color: #33ff33;
+  background-color: #33ff33;
+  color: #000;
+  box-shadow: 0 0 15px rgba(51, 255, 51, 0.6);
+}
+
+.aircraft-node.active .image-placeholder {
+  border-color: #000;
+}
+
+.aircraft-node.inactive { cursor: pointer;
+  opacity: 1;
+  border: 2px dashed #1a881a;
+  color: #1a881a;
+  background-color: #050505;
+  box-shadow: none;
+}
+
+.aircraft-node.inactive .image-placeholder {
+  border: 2px dashed #1a881a;
+}
+
+.image-placeholder {
+  width: 80px;
+  height: 60px;
+  background-color: transparent;
+  margin: 0 auto 10px auto;
+  border: 2px solid #33ff33;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/* Override default ReactFlow Edge styles for CRT feel */
+.react-flow__edge-path {
+  stroke-width: 2 !important;
+}
+
+.edge-active .react-flow__edge-path {
+  stroke: #33ff33 !important;
+  filter: drop-shadow(0px 0px 3px rgba(51, 255, 51, 0.8));
+}
+
+.edge-inactive .react-flow__edge-path {
+  stroke: #1a881a !important;
+  stroke-dasharray: 6 6 !important;
+  filter: none;
+}
